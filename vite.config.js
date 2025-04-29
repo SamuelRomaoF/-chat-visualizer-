@@ -10,5 +10,6 @@ export default defineConfig({
         assetFileNames: `[name].[ext]`
       }
     }
-  }
+  },
+  publicDir: 'public'
 }) 

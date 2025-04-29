@@ -1,4 +1,13 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+  force = false
+  
+[build]
+  publish = "dist"
+  
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript" 
