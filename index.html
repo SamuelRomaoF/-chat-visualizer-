@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizador de Mídias do WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- JSZip via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Layout com sidebar e conteúdo principal -->
+    <div class="app-content">
+      <!-- Sidebar para navegação entre conversas -->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h2>Conversas</h2>
+          <button class="add-conversation-btn" id="addConversationBtn">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <div class="contact-list" id="contactList">
+          <!-- As conversas salvas aparecerão aqui -->
+          <div class="empty-contacts">
+            <p>Nenhuma conversa encontrada</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conteúdo principal (mantido original) -->
+      <div class="main-content">
+        <header class="app-header">
+          <div class="header-content">
+            <div class="profile-info">
+              <div class="avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="chat-info">
+                <h1 id="currentChatName">Visualizador de Mídias</h1>
+                <p>Carregue um arquivo .zip com mídias do WhatsApp</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="upload-container" id="uploadContainer">
+          <div class="upload-area">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h2>Selecione seu arquivo .zip</h2>
+            <p>Arraste um arquivo ou clique para selecionar</p>
+            <input type="file" id="fileInput" accept=".zip" class="file-input">
+            <button class="select-button">Selecionar Arquivo</button>
+          </div>
+          <div class="loading-area" id="loadingArea">
+            <div class="spinner"></div>
+            <p>Processando seu arquivo...</p>
+          </div>
+        </div>
+
+        <main class="chat-container" id="chatContainer">
+          <div class="chat-background">
+            <!-- As bolhas de chat aparecerão aqui -->
+          </div>
+        </main>
+
+        <div class="no-files-message" id="noFilesMessage">
+          <i class="fas fa-exclamation-circle"></i>
+          <h3>Nenhum arquivo de mídia encontrado</h3>
+          <p>O arquivo .zip não contém mídias reconhecidas do WhatsApp.</p>
+          <button class="retry-button" id="retryButton">Tentar novamente</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-footer">
+      <p>Visualizador de Mídias do WhatsApp - Carregue um arquivo .zip com imagens, vídeos e áudios.</p>
+      <p><small>Esta aplicação funciona 100% no seu navegador, nenhum arquivo é enviado para servidores.</small></p>
+    </div>
+  </div>
+
+  <!-- Modal de confirmação para excluir conversa -->
+  <div class="confirm-delete" id="confirmDelete">
+    <div class="confirm-delete-content">
+      <h3>Deseja realmente excluir esta conversa?</h3>
+      <p>Esta ação não pode ser desfeita.</p>
+      <div class="confirm-delete-buttons">
+        <button class="cancel-delete-btn" id="cancelDeleteBtn">Cancelar</button>
+        <button class="confirm-delete-btn" id="confirmDeleteBtn">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

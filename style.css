@@ -1,0 +1,718 @@
+/* Estilos Gerais e Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #111b21;
+  color: #e9edef;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container Principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Layout com flexbox */
+.app-content {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 60px); /* Altura total menos o footer */
+  overflow: hidden;
+}
+
+/* Sidebar para navegação */
+.sidebar {
+  width: 280px;
+  background-color: #111b21;
+  border-right: 1px solid #222d34;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 16px;
+  background-color: #202c33;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e9edef;
+}
+
+.add-conversation-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #00a884;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-conversation-btn:hover {
+  background-color: #008f71;
+}
+
+.add-conversation-btn i {
+  font-size: 16px;
+}
+
+.contact-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.contact-item {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #222d34;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.contact-item:hover {
+  background-color: #202c33;
+}
+
+.contact-item.active {
+  background-color: #2a3942;
+}
+
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #6a7175;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.contact-avatar i {
+  font-size: 20px;
+  color: #e9edef;
+}
+
+.contact-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.contact-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e9edef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-preview {
+  font-size: 13px;
+  color: #8696a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.empty-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: #8696a0;
+  font-size: 14px;
+}
+
+/* Conteúdo Principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Cabeçalho do App */
+.app-header {
+  background-color: #202c33;
+  padding: 10px 16px;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #6a7175;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.avatar i {
+  font-size: 20px;
+  color: #e9edef;
+}
+
+.chat-info h1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e9edef;
+}
+
+.chat-info p {
+  font-size: 13px;
+  color: #8696a0;
+}
+
+/* Área de Upload */
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 59px - 60px);
+  background-color: #0b141a;
+  position: relative;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.upload-area {
+  background-color: #202c33;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.upload-area i {
+  font-size: 48px;
+  color: #00a884;
+  margin-bottom: 15px;
+}
+
+.upload-area h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #e9edef;
+}
+
+.upload-area p {
+  color: #8696a0;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.select-button {
+  background-color: #00a884;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  position: relative;
+  z-index: 10;
+}
+
+.select-button:hover {
+  background-color: #008f71;
+}
+
+.loading-area {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 168, 132, 0.1);
+  border-radius: 50%;
+  border-left-color: #00a884;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Container de Chat */
+.chat-container {
+  flex: 1;
+  background-color: #0b141a;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: none;
+  position: relative;
+}
+
+.chat-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0b141a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cpath fill='%23aaaaaa' fill-opacity='0.05' d='M600 325.1v-1.17c-0.04-0.18-0.06-0.36-0.06-0.55 0-0.18 0.02-0.36 0.06-0.55v-0.59-0.55c-0.02-0.19-0.06-0.37-0.06-0.55 0-0.18 0.02-0.37 0.06-0.55v-0.55-0.55c-0.04-0.18-0.06-0.36-0.06-0.55 0-0.19 0.02-0.37 0.06-0.55v-0.55c0-0.55-0.45-1-1-1h-1.82-1.37-1.12-0.93h-1.5-0.9-1.92-1.91c-0.53-0.02-0.96-0.45-0.98-0.97v-0.03c0-0.56-0.44-1-1-1h-0.46-1.65-1.89-1.89-1.86-1.55-1.89-1.79-1.52-1.79-1.49-1.46-1.32-1.12-0.86-0.63-0.48-1.07-1.49-1.7-1.7-1.86-1.96-2.02-1.83-1.69-1.61-1.58-1.55-1.44-1.29-1.05-0.8-0.59-0.48-0.48-0.56-0.79-1.02-1.26-1.17-1.04h-0.78-0.94-0.86-0.86-0.89-1.27-1.58-1.55-1.58-1.52-1.52-1.52-1.48-1.4-1.21-0.98-0.86-0.83-0.8-0.75-0.66-0.52-0.43-0.42-0.36-0.23-0.16-0.05 0.06 0.16 0.23 0.36 0.42 0.43 0.52 0.66 0.75 0.8 0.83 0.86 0.98 1.21 1.4 1.48 1.52 1.52 1.52 1.58 1.55 1.58 1.27 0.89 0.86 0.86 0.94 0.78 1.04 1.17 1.26 1.02 0.79 0.56 0.48 0.48 0.59 0.8 1.05 1.29 1.44 1.55 1.58 1.61 1.69 1.83 2.02 1.96 1.86 1.7 1.7 1.49 1.07 0.48 0.63 0.86 1.12 1.32 1.46 1.49 1.79 1.52 1.79 1.89 1.55 1.86 1.89 1.89 1.65 0.46 1c0.55 0 1 0.45 1 1v0.03c0.02 0.52 0.45 0.95 0.97 0.97h1.92 1.92 0.9 1.5 0.93 1.12 1.37 1.82 1c0.55 0 1 0.45 1 1v0.55c0.04 0.18 0.06 0.37 0.06 0.55 0 0.18-0.02 0.36-0.06 0.55v0.55 0.55c0.04 0.18 0.06 0.37 0.06 0.55 0 0.18-0.02 0.36-0.06 0.55v0.59 0.55c0.04 0.19 0.06 0.37 0.06 0.55 0 0.18-0.02 0.37-0.06 0.55v1.17c0.02 0.26 0.22 0.51 0.49 0.56-0.17 0.74 0.34 1.46 1.08 1.49-0.18 0.73 0.29 1.48 1.03 1.52-0.2 0.8 0.27 1.6 1.07 1.64-0.2 0.68 0.19 1.38 0.88 1.52 0.06 0.24 0.25 0.41 0.5 0.41h1.74c0.58 0 1.1-0.47 1.1-1.05 0-0.33-0.15-0.62-0.38-0.81v-0.19c0-0.58-0.47-1.05-1.05-1.05h-0.07v-0.43c0-0.16 0.04-0.32 0.07-0.47 0.07-0.31 0.26-0.58 0.53-0.78 0.22-0.16 0.49-0.27 0.78-0.27 0.3 0 0.57 0.11 0.79 0.28 0.27 0.19 0.46 0.47 0.53 0.78 0.03 0.15 0.07 0.3 0.07 0.47v0.43h-0.06c-0.58 0-1.05 0.47-1.05 1.05v0.19c-0.23 0.19-0.38 0.48-0.38 0.81 0 0.58 0.52 1.05 1.1 1.05h1.74c0.24 0 0.44-0.17 0.5-0.41 0.69-0.14 1.08-0.84 0.88-1.52 0.8-0.04 1.27-0.84 1.07-1.64 0.74-0.04 1.21-0.79 1.03-1.52 0.74-0.03 1.25-0.75 1.08-1.49 0.27-0.05 0.47-0.3 0.49-0.56v-1.17-0.55-0.59-0.55-0.55-0.55-0.55-0.55z'/%3E%3C/svg%3E");
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message-bubble {
+  max-width: 65%;
+  min-width: 60px;
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7.5px;
+  padding: 6px 7px 8px 9px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  animation: fadeIn 0.3s ease;
+  word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-bubble.sent {
+  margin-left: auto;
+  margin-right: 10px;
+  background-color: #005c4b;
+  border-top-right-radius: 0;
+  align-self: flex-end;
+}
+
+.message-bubble.sent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid #005c4b;
+  border-top: 8px solid transparent;
+}
+
+.message-bubble.received {
+  margin-right: auto;
+  margin-left: 10px;
+  background-color: #202c33;
+  border-top-left-radius: 0;
+  align-self: flex-start;
+}
+
+.message-bubble.received::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-right: 8px solid #202c33;
+  border-top: 8px solid transparent;
+}
+
+.text-container {
+  color: #e9edef;
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.media-container {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #111b21;
+  margin: 5px 0;
+  position: relative;
+}
+
+.media-container img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  background-color: #000;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.media-container img:hover {
+  transform: scale(1.02);
+}
+
+.media-container video {
+  width: 100%;
+  max-height: 300px;
+  background-color: #000;
+  display: block;
+}
+
+.media-container audio {
+  width: 100%;
+  background-color: #202c33;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #d1d7db;
+  text-align: right;
+  margin-top: 3px;
+  padding-right: 4px;
+  opacity: 0.7;
+}
+
+/* Mensagem de Nenhum Arquivo */
+.no-files-message {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background-color: #202c33;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: 80%;
+  max-width: 400px;
+}
+
+.no-files-message i {
+  font-size: 48px;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.retry-button {
+  background-color: #00a884;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.retry-button:hover {
+  background-color: #008f71;
+}
+
+/* Rodapé */
+.info-footer {
+  background-color: #202c33;
+  padding: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #8696a0;
+  position: relative;
+  z-index: 5;
+}
+
+.info-footer p {
+  margin: 5px 0;
+}
+
+/* Estilos para o botão de exclusão de conversas */
+.delete-conversation-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ea0038;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  opacity: 0;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.contact-item:hover .delete-conversation-btn {
+  opacity: 1;
+}
+
+.delete-conversation-btn:hover {
+  background-color: #c50030;
+}
+
+.delete-conversation-btn i {
+  font-size: 14px;
+}
+
+/* Confirmar exclusão */
+.confirm-delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-delete-content {
+  background-color: #202c33;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-delete-content h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #e9edef;
+}
+
+.confirm-delete-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.confirm-delete-btn, .cancel-delete-btn {
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+}
+
+.confirm-delete-btn {
+  background-color: #ea0038;
+  color: #fff;
+}
+
+.cancel-delete-btn {
+  background-color: #323739;
+  color: #e9edef;
+}
+
+/* Nome do remetente para mensagens recebidas */
+.sender-name {
+  font-size: 12px;
+  color: #53bdeb;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar-toggle {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    z-index: 101;
+    font-size: 20px;
+    color: #e9edef;
+    cursor: pointer;
+  }
+  
+  .upload-area {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .message-bubble {
+    max-width: 85%;
+  }
+  
+  .no-files-message {
+    width: 90%;
+  }
+}
+
+/* Estilos para visualização expandida de imagens */
+.expanded-media {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.expanded-media img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Indicador de loading de mídia */
+.media-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+
+/* Estilo para alerta de mídia ausente */
+.media-alert {
+  background-color: #202c33;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  border-left: 3px solid #f5c242;
+  color: #e9edef;
+  text-align: center;
+}
+
+.media-alert p {
+  margin-bottom: 10px;
+}
+
+.reload-media-btn {
+  background-color: #00a884;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.reload-media-btn:hover {
+  background-color: #008f71;
+}
+
+/* Estilo para placeholder de mídia (quando a mídia não está disponível) */
+.media-placeholder {
+  width: 100%;
+  background-color: #2a3942;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8696a0;
+  text-align: center;
+}
+
+.media-placeholder i {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #00a884;
+}
+
+.placeholder-text {
+  font-size: 13px;
+  word-break: break-all;
+}
